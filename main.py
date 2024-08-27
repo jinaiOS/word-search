@@ -70,3 +70,5 @@ def signup(id:Annotated[str,Form()],
                 """)
     con.commit()
     return '200'
+
+app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
