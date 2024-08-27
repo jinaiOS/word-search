@@ -1,12 +1,79 @@
-@import "reset.css";
-@import "header.css";
-@import "footer.css";
-@import "main.css";
-
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-    "Pretendard Variable", Pretendard, Roboto, "Noto Sans KR", "Segoe UI",
-    "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    sans-serif;
-  margin: 10px 50px 0 50px;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+}
+
+.menu-bar {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.menu-bar__maker,
+.menu-bar__more,
+.menu-bar__search,
+.menu-bar__login {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.menu-bar__maker:hover,
+.menu-bar__more:hover,
+.menu-bar__search:hover,
+.menu-bar__login:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.menu-bar__line {
+  height: 30px;
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.play-btn {
+  display: block;
+  margin: 50px auto;
+  padding: 15px 30px;
+  font-size: 2em;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.play-btn:hover {
+  background-color: #45a049;
+}
+
+.category-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.category-container div {
+  margin: 0 10px;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }

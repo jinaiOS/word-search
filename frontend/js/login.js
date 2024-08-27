@@ -24,9 +24,7 @@ const handleSubmit = async (event) => {
   window.location.pathname = "/";
 };
 
-const moveToSignup = () => {
-  
-}
+const moveToSignup = () => {};
 
 form.addEventListener("submit", handleSubmit);
 form.addEventListener("button", handleSubmit);
