@@ -1,0 +1,32 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+    "Pretendard Variable", Pretendard, Roboto, "Noto Sans KR", "Segoe UI",
+    "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form__header {
+  font-size: 30px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form__id {
+  display: flex;
+  justify-content: space-between;
+}
+
+label {
+  font-size: 18px;
+}
+
+button {
+  margin-top: 10px;
+  height: 40px;
+  width: 100%;
+}
