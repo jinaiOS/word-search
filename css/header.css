@@ -1,0 +1,17 @@
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
+}
+
+.menu-bar__maker {
+  font-size: 25px;
+}
+
+.menu-bar__more {
+  font-size: 25px;
+}
+
+.menu-bar__search {
+  font-size: 25px;
+}
