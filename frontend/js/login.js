@@ -6,8 +6,7 @@ let accessToken = null;
 const handleSubmit = async (event) => {
   event.preventDefault();
   const formData = new FormData(form);
-  const sha256Password = sha256(formData.get("password"));
-  formData.set("password", sha256Password);
+  formData.set("password", formData.get("password"));
   console.log(formData);
 
   const div = document.querySelector("#info");

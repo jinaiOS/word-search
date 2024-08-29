@@ -10,3 +10,22 @@ document.addEventListener("DOMContentLoaded", () => {
     loginBtn.addEventListener("click", moveToLogin);
   }
 });
+
+const fetchData = async () => {
+  try {
+    const accessToken = window.localStorage.getItem("token");
+    const res = await fetch("/profile", {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+
+    const data = await res.json(); // 응답 데이터를 JSON으로 변환
+    const div = document.querySelector("#info");
+    div.innerText = data.id;
+  } catch (error) {
+    console.error("데이터를 가져오는 데 오류가 발생했습니다:", error);
+  }
+};
+
+fetchData();

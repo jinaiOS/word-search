@@ -17,9 +17,9 @@ cur = con.cursor()
 cur.execute(f"""
             CREATE TABLE IF NOT EXISTS users (
             id TEXT PRIMARY KEY,
-            name TEXT NOT NULL,
-            email TEXT NOT NULL,
-            password TEXT NOT NULL);
+            password TEXT NOT NULL,
+            score INTEGER DEFAULT 0
+            );
             """)
 
 app = FastAPI()
@@ -43,16 +43,16 @@ def query_user(data):
 def login(id:Annotated[str,Form()], 
            password:Annotated[str,Form()]):
     user = query_user(id)
+    hashPassword = hashlib.sha256(password.encode()).hexdigest()
     if not user:
         raise InvalidCredentialsException
-    elif password != user['password']:
+    elif hashPassword != user['password']:
         raise InvalidCredentialsException
     
     access_token = manager.create_access_token(data={
         'sub': {
             'id': user['id'],
-            'name': user['name'],
-            'email': user['email']
+            'score': user['score']
         }
     })
     
@@ -60,15 +60,20 @@ def login(id:Annotated[str,Form()],
 
 @app.post('/signup')
 def signup(id:Annotated[str,Form()], 
-           password:Annotated[str,Form()],
-           name:Annotated[str,Form()],
-           email:Annotated[str,Form()]):
+           password:Annotated[str,Form()]):
     hashPassword = hashlib.sha256(password.encode()).hexdigest()
     cur.execute(f"""
-                INSERT INTO users(id,name,email,password)
-                VALUES ('{id}','{name}','{email}','{hashPassword}')
+                INSERT INTO users(id,password)
+                VALUES ('{id}','{hashPassword}')
                 """)
     con.commit()
     return '200'
+
+@app.get('/profile')
+def get_profile(user=Depends(manager)):
+    return {
+        "id": user['id'],
+        "score": user['score']
+    }
 
 app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
