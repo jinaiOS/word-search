@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>로그인</title>
+    <title>회원가입</title>
     <link rel="stylesheet" href="css/login/style.css" />
   </head>
   <body>
     <form id="login-form" action="/login" method="POST">
-      <div class="login-form__header">로그인</div>
+      <div class="login-form__header">회원가입</div>
       <div class="login-form__id">
         <label class="login-form__label" for="id">아이디</label>
         <input type="text" id="id" name="id" required />
@@ -18,11 +18,14 @@
         <input type="password" id="password" name="password" required />
       </div>
       <div>
-        <button type="submit">로그인</button>
-        <button id="signup" type="button">회원가입</button>
+        <label class="login-form__label" for="password">패스워드</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+      <div class="btn-wrapper">
+        <button type="submit">회원가입</button>
       </div>
       <div id="info"></div>
     </form>
-    <script src="js/login.js"></script>
+    <script src="js/signup.js"></script>
   </body>
 </html>

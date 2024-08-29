@@ -1,4 +1,5 @@
 const form = document.querySelector("#login-form");
+const signup = document.getElementById("signup");
 
 let accessToken = null;
 
@@ -24,7 +25,12 @@ const handleSubmit = async (event) => {
   window.location.pathname = "/";
 };
 
-const moveToSignup = () => {};
+const moveToSignup = () => {
+  window.location.pathname = "/signup.html";
+};
 
 form.addEventListener("submit", handleSubmit);
-form.addEventListener("button", handleSubmit);
+
+if (signup) {
+  signup.addEventListener("click", moveToSignup);
+}
